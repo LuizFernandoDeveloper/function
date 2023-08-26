@@ -18,9 +18,7 @@ public class App {
         productsList.add(new Product("Tablet", 350.00));
         productsList.add(new Product("Hd Case", 80.90));
 
-        Function<Product, String> functionProduct = (x) -> (x.getName().toUpperCase());;
-
-        List<String> listString = productsList.stream().map(functionProduct).collect(Collectors.toList());
+        List<String> listString = productsList.stream().map(x -> x.getName().toLowerCase()).collect(Collectors.toList());
         
         listString.forEach(x -> System.out.println(x));
         // OU
