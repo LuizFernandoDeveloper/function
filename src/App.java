@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Function;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
@@ -17,7 +18,9 @@ public class App {
         productsList.add(new Product("Tablet", 350.00));
         productsList.add(new Product("Hd Case", 80.90));
 
-        List<String> listString = productsList.stream().map(Product::nonStaticUppperCaseName).collect(Collectors.toList());
+        Function<Product, String> functionProduct = (x) -> (x.getName().toUpperCase());;
+
+        List<String> listString = productsList.stream().map(functionProduct).collect(Collectors.toList());
         
         listString.forEach(x -> System.out.println(x));
         // OU
